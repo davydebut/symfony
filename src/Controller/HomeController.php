@@ -25,8 +25,8 @@ class HomeController extends AbstractController
      * @Route("/show")
      */
 
-    public function show(): Response
+    /* public function show(): Response
     {
         return new Response('<html><body>Ceci est le rendu de la méthode show</body></html>');
-    }
+    } */
 }

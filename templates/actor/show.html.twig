@@ -1,0 +1,17 @@
+{% block title %}{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="card col-12 col-md-6 col-lg-3">
+				<img src="..." alt="..." class="card-img-top">
+				<div class="card-body">
+					<h5 class="card-title">{{ actor.firstName }}
+						{{ actor.lastName|upper }}</h5>
+					<p class="card-text">{{ actor.nationality }}</p>
+					<p class="card-text">{{ actor.birthday|date("d/m/Y") }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
