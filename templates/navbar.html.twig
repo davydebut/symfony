@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">Navbar</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<li class="nav-item active">
+				<a class="nav-link" href="{{ path('home')}}">Acceuil</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Film</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_actor')}}">Acteur</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Categories</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+			</li>
+		</ul>
+		<div>
+			<a class="btn btn-outline-primary me-5" href="{{ path('admin') }}" role="button">Admin</a>
+		</div>
+	</div>
+</nav>

@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Actor;
 use App\Entity\Category;
 use App\Entity\Movie;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -46,9 +47,11 @@ class DashboardController extends AbstractDashboardController
     {
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
-            MenuItem::linkToCrud('Actors', 'fas fa-list', Actor::class),
+            MenuItem::linkToCrud('Actors', 'fa fa-masks-theater', Actor::class),
             MenuItem::linkToCrud('Categories', 'fas fa-tag', Category::class),
             MenuItem::linkToCrud('Movie', 'fas fa-film', Movie::class),
+            MenuItem::linkToCrud('Users', 'fas fa-users', User::class),
+            MenuItem::linkToLogout('Logout', 'fa fa-right-from-bracket')
         ];
     }
 }

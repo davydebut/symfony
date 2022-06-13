@@ -33,6 +33,9 @@ class Actor
     #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'actors')]
     private $movies;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $Photo;
+
     public function __construct()
     {
         $this->movies = new ArrayCollection();
@@ -134,5 +137,17 @@ class Actor
     public function __toString()
     {
         return $this->firstname . ' ' . $this->lastname;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->Photo;
+    }
+
+    public function setPhoto(?string $Photo): self
+    {
+        $this->Photo = $Photo;
+
+        return $this;
     }
 }

@@ -3,23 +3,22 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-	{# 	<pre>
-			{{ dump(actorList) }}
-			</pre> #}
+	{# 	<pre> {{ dump(actorList) }}
+						</pre> #}
 	<div class="container">
 		<h1>Liste des acteurs</h1>
 		<div class="row">
-			<div class="card col-12 col-md-6 col-lg-3">
-				{% for actor in actorList %}
+			{% for actor in actorList %}
+				<div class="card col-12 col-md-6 col-lg-3 mx-5">
 					<div class="card-body">
-						<img src="..." alt="..." class="card-img-top">
-						<h5 class="card-title">{{ actor.firstName }}
-							{{ actor.lastName|upper }}</h5>
+						{# <img src="{{ asset('uploads/images/actors/' ~ actor.photo)}}" alt="..." class="card-img-top"> #}
+						<img src="uploads/images/actors/{{ actor.photo }}" alt="..." class="card-img-top">
+						<h5 class="card-title">{{ actor.firstName }} {{ actor.lastName|upper }}</h5>
 						<p class="card-text">{{ actor.nationality }}</p>
 						<p class="card-text">{{ actor.birthday|date("d/m/Y") }}</p>
 						<a href="/actor/{{actor.id}}" class="btn btn-primary">Voir la fiche de l'acteur</a>
 					</div>
-				{% endfor %}
-			</div>
+				</div>
+			{% endfor %}
 		</div>
 	{% endblock %}
