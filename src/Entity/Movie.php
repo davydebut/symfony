@@ -27,6 +27,9 @@ class Movie
     #[ORM\ManyToMany(targetEntity: Actor::class, inversedBy: 'movies')]
     private $actors;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $affiche;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -108,5 +111,22 @@ class Movie
         $this->actors->removeElement($actor);
 
         return $this;
+    }
+
+    public function getAffiche(): ?string
+    {
+        return $this->affiche;
+    }
+
+    public function setAffiche(string $affiche): self
+    {
+        $this->affiche = $affiche;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

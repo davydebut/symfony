@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategorieController!
+{% endblock %}
+{% block body %}
+	{# <pre> {{ dump(categorie) }}
+	
+		<pre> {{ dump(movie.movies) }}
+		</pre>
+	{% for movie in categorie %}{% endfor %}
+</pre> #}
+<div class="container">
+	<div class="row">
+			<div class="card mb-3 p-0" style="max-width: 540px;">
+				{% for movie in categorie.movies %}
+					<div class="row g-0 m-0">
+						<div class="col-md-4">
+							<img src="\uploads\images\films\{{movie.affiche}}" class="img-fluid rounded-start" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">{{movie.title}}</h5>
+								{# <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> #}
+								{% for actor in movie.actors %}
+								<p class="card-text">
+									<small class="text-muted">{{actor}}</small>
+								</p>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div></div>{% endblock %}

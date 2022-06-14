@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Films
+{% endblock %}
+
+{% block body %}
+	{# <pre> {{ dump(movieList) }}
+														</pre> #}
+	<div class="container">
+		<div class="row">
+			{% for movie in movieList %}
+				<div class="col-4">
+					<div class="card mb-3" style="max-width: 540px;">
+						<div class="row g-0">
+							<div class="col-md-4">
+								<img src="uploads\images\films\{{ movie.affiche }}" class="img-fluid rounded-start" alt="...">
+							</div>
+							<div class="col-md-8">
+								<div class="card-body">
+									<h5 class="card-title">{{movie.title}}</h5>
+									{% for actor in movie.actors %}
+										<p class="card-text">{{actor}}</p>
+									{% endfor %}
+									{% for categorie in movie.categories %}
+										<p class="card-text">
+											<small class="text-muted">{{categorie}}</small>
+										</p>
+									{% endfor %}
+									<a href="/movie/{{movie}}" class="btn btn-primary">Voir la fiche du film</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

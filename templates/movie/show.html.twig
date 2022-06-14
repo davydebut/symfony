@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Films
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="card" style="width: 18rem;">
+				<img src="\uploads\images\films\{{ movie.affiche }}" class="card-img-top" alt="...">
+				<div class="card-body overlay">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

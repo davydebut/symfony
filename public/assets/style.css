@@ -1,0 +1,8 @@
+.overlay {
+    transition: .5s ease;
+}
+
+.overlay:hover {
+    transform: translateY(-300px);
+    color: white;
+}
