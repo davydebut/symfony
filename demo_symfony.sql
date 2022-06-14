@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 13 juin 2022 à 10:57
+-- Généré le : mar. 14 juin 2022 à 16:38
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.4
 
@@ -37,8 +37,8 @@ CREATE TABLE `actor` (
 
 INSERT INTO `actor` (`id`, `nationality`, `firstname`, `birthday`, `death`, `lastname`, `photo`) VALUES
 (1, 'American', 'Anthony', '1937-12-31', NULL, 'Hopkins', 'AnthonyHopkins-1655110511.jpg'),
-(2, 'American', 'Brad', '1963-12-18', NULL, 'Pitt', NULL),
-(3, 'American', 'Tom', '1962-07-03', NULL, 'Cruise', NULL);
+(2, 'American', 'Brad', '1963-12-18', NULL, 'Pitt', 'Brad_Pitt_2019_by_Glenn_Francis-1655131336.jpg'),
+(3, 'American', 'Tom', '1962-07-03', NULL, 'Cruise', '220px-Tom_Cruise_(34797273596)-1655131369.webp');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220608134340', '2022-06-08 15:43:55', 384),
 ('DoctrineMigrations\\Version20220613075706', '2022-06-13 09:57:21', 45),
 ('DoctrineMigrations\\Version20220613083355', '2022-06-13 10:34:10', 62),
-('DoctrineMigrations\\Version20220613085219', '2022-06-13 10:52:42', 39);
+('DoctrineMigrations\\Version20220613085219', '2022-06-13 10:52:42', 39),
+('DoctrineMigrations\\Version20220614070706', '2022-06-14 09:07:24', 196);
 
 -- --------------------------------------------------------
 
@@ -95,17 +96,18 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 CREATE TABLE `movie` (
   `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `year` int(11) NOT NULL
+  `year` int(11) NOT NULL,
+  `affiche` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `movie`
 --
 
-INSERT INTO `movie` (`id`, `title`, `year`) VALUES
-(1, 'Hannibal', 2001),
-(2, 'Rencontre avec Joe Black', 1998),
-(3, 'Top Gun : Maverick', 2022);
+INSERT INTO `movie` (`id`, `title`, `year`, `affiche`) VALUES
+(1, 'Hannibal', 2001, 'Hannibal-1655191003.jpg'),
+(2, 'Rencontre avec Joe Black', 1998, 'rencontre-avec-joe-black-1655193079.jpg'),
+(3, 'Top Gun : Maverick', 2022, 'top-gun-maverick-1655193156.jpg');
 
 -- --------------------------------------------------------
 
@@ -161,6 +163,14 @@ CREATE TABLE `user` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pseudo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `roles`, `password`, `pseudo`) VALUES
+(1, 'admin@gmail.com', '[\"ROLE_USER\",\"ROLE_ADMIN\"]', '$2y$13$x1ibVhv9HsQC6eJuzev2OugLyCkQ/hAxk5r85YTNwqQRsNwC1XXiu', 'admin'),
+(2, 'coco@gmail.com', '[]', '$2y$13$M5XwvVyP1Mo.VGyzMafHjOq9pxzCQl1AQOfDdINnZ5M2lrNWOK1We', 'coco');
 
 --
 -- Index pour les tables déchargées
@@ -239,7 +249,7 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
